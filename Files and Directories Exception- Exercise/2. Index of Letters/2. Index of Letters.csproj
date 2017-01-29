@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4A5D6491-FA42-4367-96A6-13A41EFF4400}</ProjectGuid>
+    <ProjectGuid>{A0EEDF20-E9EF-4CBC-85E2-3BB2E2B5AAE9}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_1.Phonebook</RootNamespace>
-    <AssemblyName>_1.Phonebook</AssemblyName>
+    <RootNamespace>_2.Index_of_Letters</RootNamespace>
+    <AssemblyName>_2.Index_of_Letters</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
