@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,26 +13,12 @@ namespace _16.Count_Numbers
         {
             List<int> input = Console.ReadLine().Split().Select(int.Parse).ToList();
 
-            input.Sort((a, b) => a.CompareTo(b));
 
-            List<int> numbers = new List<int>();
-
-            for (int i = 1; i < input.Count; i++)
+            foreach (var num in input.Distinct().OrderBy(x => x))
             {
-                if (input[i - 1] == input[i])
-                {
-                    numbers.Add(input[i-1]);
-                    input.RemoveAt(input[i-1]);
-                    i = 0;
-                }
-                else if (input[i-1] != input[i])
-                {
-                    input.RemoveAt(input[i - 1]);
-                    i = 0;
-                }
+                Console.WriteLine(string.Join(" -> ",num, input.Count(x => x == num)));
             }
-           
-            Console.WriteLine(string.Join(""));
+            
         }
     }
 }
