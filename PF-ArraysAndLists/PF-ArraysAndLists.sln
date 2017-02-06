@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16. Count Numbers", "16. Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.Array Manipulator", "3.Array Manipulator\3.Array Manipulator.csproj", "{4866BDCF-7141-44CA-853C-461CC8CEFFE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Substring", "Substring\Substring.csproj", "{F1D5A424-4449-4E91-8241-DF0A1ED13075}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{4866BDCF-7141-44CA-853C-461CC8CEFFE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4866BDCF-7141-44CA-853C-461CC8CEFFE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4866BDCF-7141-44CA-853C-461CC8CEFFE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D5A424-4449-4E91-8241-DF0A1ED13075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D5A424-4449-4E91-8241-DF0A1ED13075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D5A424-4449-4E91-8241-DF0A1ED13075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D5A424-4449-4E91-8241-DF0A1ED13075}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
