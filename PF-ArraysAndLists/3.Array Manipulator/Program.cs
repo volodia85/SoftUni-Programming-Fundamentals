@@ -1,97 +1,122 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _3.Array_Manipulator
+﻿namespace _03.Array_Manipulator
 {
-    class Program
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class ArrayManipulator
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            List<int> input = Console.ReadLine().Split().Select(int.Parse).ToList();
-            List<string> nextInput = new List<string>();
-            int[] nn = new int[input.Count];
-            var endInput = input.Count;
-            while (!input.Equals("print"))
+            List<int> numbers = Console.ReadLine().Split().Select(int.Parse).ToList();
+            string[] command = Console.ReadLine().Split(' ').ToArray();
+
+            List<int> result = new List<int>();
+            while (command[0] != "print")
             {
-                nextInput = Console.ReadLine().Split().ToList();
-                if (nextInput.Contains("add"))
+                switch (command[0])
                 {
-                    nextInput.Remove(nextInput[0]);
-                    List<int> nums = nextInput.Select(int.Parse).ToList();
-                    int index = nums[0];
-                    int num = nums[1];
-                    input.Insert(index, num);
+                    case "add":
+                        Add(numbers, command);
+                        break;
 
-                }
-                else if (nextInput.Contains("addMany"))
-                {
-                    nextInput.Remove(nextInput[0]);
-                    List<int> nums = nextInput.Select(int.Parse).ToList();
-                    int index = nums[0];
-                    int num = nums[1];
-                    input.AddRange(nums);
-                    
-                }
-                else if (nextInput.Contains("contains"))
-                {
-                    nextInput.Remove(nextInput[0]);
-                    List<int> nums = nextInput.Select(int.Parse).ToList();
-                    int num = nums[0];
-                    if (input.Contains(num))
-                    {
-                        Console.WriteLine(nums.IndexOf(num));
-                    }
-                    else
-                    {
-                        Console.WriteLine("-1");
-                    }
-                }
-                else if (nextInput.Contains("remove"))
-                {
-                   nextInput.Remove(nextInput[0]);
-                    List<int> nums = nextInput.Select(int.Parse).ToList();
-                    int index = nums[0];
-                    input.RemoveAt(index);
-                    
-                }
-                else if (nextInput.Contains("shift"))
-                {
-                    nextInput.Remove(nextInput[0]);
-                    List<int> nums = nextInput.Select(int.Parse).ToList();
-                    int rotations = nums[0];
-                    RotateRight(input,rotations);
-                }else if (nextInput.Contains("sumPairs"))
-                {
+                    case "addMany":
+                        AddMany(numbers, command);
+                        break;
 
-                    for (int i = 1; i < input.Count; i++)
-                    {
-                        var sum = input[i-1] + input[i];
+                    case "contains":
+                        result.Add(Contains(numbers, command));
+                        break;
 
-                    }
+                    case "remove":
+                        Remove(numbers, command);
+                        break;
+
+                    case "sumPairs":
+                        SumPairs(numbers, command);
+                        break;
+
+                    case "shift":
+                        Shift(numbers, command);
+                        break;
                 }
-            Console.WriteLine("[{0}]",string.Join(" ",input));
+
+                command = Console.ReadLine().Split(' ').ToArray();
             }
-        }
-        public static void RotateRight(List<int> input, int right)
-        {
-            for (var i = 0; i < right; i += 1)
+
+            foreach (int number in result)
             {
-                RotateRightOne(input);
+                Console.WriteLine(number);
             }
+
+            Console.WriteLine($"[{string.Join(", ", numbers)}]");
         }
 
-        public static void RotateRightOne(List<int> input)
+        public static int Contains(List<int> numbers, string[] command)
         {
-            var last = input.Count - 1;
-            for (var i = 0; i < last; i += 1)
+            int result = -1;
+            if (numbers.Contains(Convert.ToInt32(command[1])))
             {
-                input[i] ^= input[last];
-                input[last] ^= input[i];
-                input[i] ^= input[last];
+                result = numbers.IndexOf(Convert.ToInt32(command[1]));
             }
+
+            return result;
+        }
+
+        public static List<int> Add(List<int> numbers, string[] command)
+        {
+            numbers.Insert(Convert.ToInt32(command[1]), Convert.ToInt32(command[2]));
+            return numbers;
+        }
+
+        public static List<int> AddMany(List<int> numbers, string[] command)
+        {
+            List<int> addNumbers = new List<int>();
+            for (int i = 2; i < command.Length; i++)
+            {
+                addNumbers.Add(Convert.ToInt32(command[i]));
+            }
+
+            numbers.InsertRange(Convert.ToInt32(command[1]), addNumbers);
+
+            return numbers;
+        }
+
+        public static List<int> Remove(List<int> numbers, string[] command)
+        {
+            numbers.RemoveAt(Convert.ToInt32(command[1]));
+
+            return numbers;
+        }
+
+        public static List<int> SumPairs(List<int> numbers, string[] command)
+        {
+            List<int> summedPairs = new List<int>();
+
+            for (int i = 0; i < numbers.Count - 1; i += 2)
+            {
+                summedPairs.Add(numbers[i] + numbers[i + 1]);
+            }
+
+            if (numbers.Count % 2 != 0)
+            {
+                summedPairs.Add(numbers.Last());
+            }
+
+            numbers.Clear();
+            numbers.AddRange(summedPairs);
+            summedPairs.Clear();
+            return numbers;
+        }
+
+        public static List<int> Shift(List<int> numbers, string[] command)
+        {
+            int shiftedValue = Convert.ToInt32(command[1]) % numbers.Count;
+            List<int> shiftedNumbers = numbers.Take(shiftedValue).ToList();
+            numbers.RemoveRange(0, shiftedValue);
+            numbers.AddRange(shiftedNumbers);
+
+            return numbers;
         }
     }
 }

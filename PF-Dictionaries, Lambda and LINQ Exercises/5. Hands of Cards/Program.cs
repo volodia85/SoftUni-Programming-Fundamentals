@@ -42,7 +42,7 @@ namespace _5.Hands_of_Cards
             {
                 var name = pair.Key;
                 var cardSum = pair.Value.Sum();
-            Console.WriteLine($"{name}:{cardSum}");
+            Console.WriteLine($"{name}: {cardSum}");
             }
         }
 
