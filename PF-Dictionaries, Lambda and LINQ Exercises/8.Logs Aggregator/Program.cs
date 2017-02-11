@@ -12,26 +12,37 @@ namespace _8.Logs_Aggregator
         {
             var n = int.Parse(Console.ReadLine());
 
-            
-            var users = new SortedDictionary<string,SortedDictionary<string,List<int>>>();
-            
+
+            var users = new SortedDictionary<string, SortedDictionary<string, int>>();
+
             for (int i = 0; i < n; i++)
             {
                 var input = Console.ReadLine().Split();
                 var ip = input[0];
                 var userName = input[1];
                 var duration = int.Parse(input[2]);
-                users[userName] = new SortedDictionary<string,List<int>>();
-                users[userName][ip] = new List<int> { duration };
                 
-               
-                
-            }
-                foreach (var use in users)
+
+                if (!users.ContainsKey(userName))
                 {
-                    //Console.WriteLine($"{use.ToString()}: {duration.ToString()} {ip.ToString()}");
+                    users.Add(userName, new SortedDictionary<string, int>());
                 }
-            Console.WriteLine("s");
+                if (!users[userName].ContainsKey(ip))
+                {
+                    users[userName][ip] = duration;
+                }
+                else
+                {
+                    users[userName][ip] += duration;
+                }
+
+            }
+            foreach (var pairs in users)
+            {
+                var sum = pairs.Value.Values.Sum();
+                Console.WriteLine("{0}: {1} [{2}]", pairs.Key, sum, string.Join(", ", pairs.Value.Keys));
+            }
+
         }
     }
 }
