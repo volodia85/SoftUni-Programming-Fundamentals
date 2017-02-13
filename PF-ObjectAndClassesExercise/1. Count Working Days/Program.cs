@@ -10,6 +10,7 @@ namespace _1.Count_Working_Days
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
