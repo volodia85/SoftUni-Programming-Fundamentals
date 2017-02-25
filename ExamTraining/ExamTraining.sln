@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamTraining", "ExamTraining\ExamTraining.csproj", "{91783B43-9CDB-4186-9048-0C364B7051CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.SweetDesserts", "ExamTraining\1.SweetDesserts.csproj", "{91783B43-9CDB-4186-9048-0C364B7051CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.Football Standings", "3.Football Standings\3.Football Standings.csproj", "{C7A90313-FCC7-4D86-95A2-9CC4388A1891}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{91783B43-9CDB-4186-9048-0C364B7051CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91783B43-9CDB-4186-9048-0C364B7051CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91783B43-9CDB-4186-9048-0C364B7051CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7A90313-FCC7-4D86-95A2-9CC4388A1891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7A90313-FCC7-4D86-95A2-9CC4388A1891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7A90313-FCC7-4D86-95A2-9CC4388A1891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7A90313-FCC7-4D86-95A2-9CC4388A1891}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
